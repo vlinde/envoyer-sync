@@ -1,0 +1,14 @@
+{
+    "name": "vlinde/envoyer-sync",
+    "description": ":package_description",
+    "license": "license",
+    "authors": [
+        {
+            "name": "Vlinde",
+            "email": "dev@vlinde.com",
+            "homepage": "https://vlinde.com"
+        }
+    ],
+    "homepage": "https://github.com/vlinde/envoyer-sync",
+    "keywords": ["Laravel", "envoyer", "sync"]
+}
