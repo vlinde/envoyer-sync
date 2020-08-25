@@ -1,6 +1,6 @@
 {
     "name": "vlinde/envoyer-sync",
-    "description": ":package_description",
+    "description": "Sync the translation files for laravel when the site uses envoyer",
     "license": "MIT",
     "authors": [
         {

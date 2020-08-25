@@ -2,8 +2,6 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
 
 This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
 
@@ -12,7 +10,7 @@ This is where your description should go. Take a look at [contributing.md](contr
 Via Composer
 
 ``` bash
-$ composer require vlinde/helper
+$ composer require vlinde/envoyer-sync
 ```
 
 ## Usage
@@ -37,21 +35,19 @@ If you discover any security related issues, please email author email instead o
 
 ## Credits
 
-- [author name][link-author]
+- [Vlinde][link-author]
 - [All Contributors][link-contributors]
 
 ## License
 
 license. Please see the [license file](license.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/vlinde/helper.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/vlinde/helper.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/vlinde/helper/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
+[ico-version]: https://img.shields.io/packagist/v/vlinde/envoyer-sync.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/vlinde/envoyer-sync.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/vlinde/envoyer-sync/master.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/vlinde/helper
-[link-downloads]: https://packagist.org/packages/vlinde/helper
-[link-travis]: https://travis-ci.org/vlinde/helper
-[link-styleci]: https://styleci.io/repos/12345678
+[link-packagist]: https://packagist.org/packages/vlinde/envoyer-sync
+[link-downloads]: https://packagist.org/packages/vlinde/envoyer-sync
+[link-travis]: https://travis-ci.org/vlinde/envoyer-sync
 [link-author]: https://github.com/vlinde
 [link-contributors]: ../../contributors
