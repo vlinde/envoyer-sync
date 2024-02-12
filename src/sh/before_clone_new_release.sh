@@ -1,24 +1,58 @@
-cd $1/git_files
+#!/bin/bash
 
-# First I need to be sure there are not changes
+# Directory containing git files
+GIT_DIR="$1/git_files"
+# The branch to switch to and merge changes into
+BRANCH_NAME="$2"
+# Teams webhook URL
+TEAMS_WEBHOOK_URL="$3"
+
+# Navigate to the git directory
+cd "$GIT_DIR"
+
+# Ensure there are no changes
 git stash
 git stash list
 git stash drop
 
-# Switch the branch
-git checkout $2
+# Switch to the specified branch
+git checkout "$BRANCH_NAME"
 
-#  Go to the main folder
+# Go to the main folder
 cd ../
 
 # Copy the translations from the current live version
 cp -r ./current/resources/lang/ ./git_files/resources/
 
-# Go to the git version
+# Go back to the git directory
 cd ./git_files
 
-# Commit and push the change to git
+# Stage the changes
 git add .
+
+# Commit the changes
 git commit -m 'Translates from online'
-git pull origin $2
-git push origin $2
+
+# Fetch the latest changes from the remote without merging them
+git fetch origin "$BRANCH_NAME"
+
+# Test merge without committing to detect conflicts
+git merge --no-commit --no-ff origin/"$BRANCH_NAME"
+if [ $? -ne 0 ]; then
+    # Merge conflict detected, prepare message
+    CONFLICTS=$(git diff --name-only --diff-filter=U)
+    MESSAGE="Merge conflicts detected in the following files:\n$CONFLICTS"
+
+    # Send the conflicts to the Teams webhook
+    curl -H "Content-Type: application/json" -d "{\"text\": \"${MESSAGE}\"}" "$TEAMS_WEBHOOK_URL"
+
+    # Abort the merge
+    git merge --abort
+
+    echo "Merge conflicts detected and reported. Aborting script."
+    exit 1
+else
+    # If no conflicts, proceed with pulling and pushing the changes
+    git pull origin "$BRANCH_NAME"
+    git push origin "$BRANCH_NAME"
+fi
