@@ -52,7 +52,10 @@ if [ $? -ne 0 ]; then
     echo "Merge conflicts detected and reported. Aborting script."
     exit 1
 else
-    # If no conflicts, proceed with pulling and pushing the changes
-    git pull origin "$BRANCH_NAME"
+    # Reset merge if no conflicts to maintain clean state
+    git reset --merge
+
+    # Ensure local branch is up to date with remote
+    git pull --rebase origin "$BRANCH_NAME"
     git push origin "$BRANCH_NAME"
 fi
