@@ -58,4 +58,7 @@ else
     # Ensure local branch is up to date with remote
     git pull --rebase origin "$BRANCH_NAME"
     git push origin "$BRANCH_NAME"
+
+    # Wait for the push to propagate
+    sleep 10
 fi
