@@ -60,5 +60,5 @@ else
     git push origin "$BRANCH_NAME"
 
     # Wait for the push to propagate
-    sleep 10
+    sleep 30
 fi
